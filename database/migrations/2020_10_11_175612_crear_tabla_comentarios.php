@@ -20,6 +20,7 @@ class CrearTablaComentarios extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('producto_id')->references('id')->on('productos');
+            $table->timestamps();
         });
     }
 
