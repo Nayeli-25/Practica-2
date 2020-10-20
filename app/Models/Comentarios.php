@@ -13,5 +13,4 @@ class Comentarios extends Model
      * @var string
      */
     protected $table = 'comentarios';
-    public $timestamps = false;
 }
