@@ -36,7 +36,7 @@ class ComentariosController extends Controller
         $ComentarioActualizado -> producto_id = $request -> producto_id;
         
         if ($ComentarioActualizado->save())
-            return response()->json(["Nuevos datos del comentario"=>Comentarios::find($id)],200);
+            return response()->json(["Nuevos datos del comentario"=>$ComentarioActualizado],200);
 
         return response()->json(null,400);
     }

@@ -31,7 +31,7 @@ class ProductosController extends Controller
         $ProductoActualizado->Producto = $request->Producto;
         
         if ($ProductoActualizado->save())
-            return response()->json(["Nuevos datos del producto"=>Productos::find($id)],200);
+            return response()->json(["Nuevos datos del producto"=>$ProductoActualizado],200);
 
         return response()->json(null,400);
     }

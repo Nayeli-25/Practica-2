@@ -35,7 +35,7 @@ class PersonasController extends Controller
         $PersonaActualizada->Apellido = $request->Apellido;
         
         if ($PersonaActualizada->save())
-            return response()->json(["Nuevos datos de la persona"=>Personas::find($id)],200);
+            return response()->json(["Nuevos datos de la persona"=>$PersonaActualizada],200);
 
         return response()->json(null,400);
     }
