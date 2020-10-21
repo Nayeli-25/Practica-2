@@ -8,19 +8,13 @@ use App\Models\Comentarios;
 
 class ComentariosController extends Controller
 {
-    public function getComentarios ()
+    public function getComentarios ($id=null)
     {
-        $comentarios = Comentarios::all();
-        return response()
-        ->json($comentarios);
+        if ($id)
+            return response()->json(["Comentario"=>Comentarios::find($id)],200);
+        return response()->json(["Comentarios"=>Comentarios::all()],200);
     }
-    public function getComentariosPorProducto ($id)
-    {
-        $comentarios = Comentarios::where ('producto_id', $id) ->get();
-    
-        return response()
-        ->json($comentarios);
-    }
+
     public function createComentario (Request $request)
     {
         $comentario= new Comentarios();
@@ -30,10 +24,14 @@ class ComentariosController extends Controller
         $comentario->save();
         return 'comentario creado';
     }
+    public function getComentariosPorProducto ($id)
+    {
+        $comentarios = Comentarios::where ('producto_id', $id) ->get();
+        return response()->json($comentarios);
+    }
     public function getComentariosPorPersona ($id)
     {
         $comentarios = Comentarios::where ('persona_id', $id) ->get();
-        return response()
-        ->json($comentarios);
+        return response()->json($comentarios);
     }
 }

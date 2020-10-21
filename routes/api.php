@@ -21,13 +21,13 @@ Route::get('foo', function () {
     return 'Hello World';
 });
 
-Route::get('personas', [PersonasController::class, 'getPersonas']);
+Route::get('personas/{id?}', [PersonasController::class, 'getPersonas'])->where("id", "[0-9]+");
 Route::post('personas', [PersonasController::class, 'createPersona']);
 
-Route::get('productos', [ProductosController::class, 'getProductos']);
+Route::get('productos/{id?}', [ProductosController::class, 'getProductos'])->where("id", "[0-9]+");
 Route::post('productos', [ProductosController::class, 'createProducto']);
 
-Route::get('comentarios', [ComentariosController::class, 'getComentarios']);
+Route::get('comentarios/{id?}', [ComentariosController::class, 'getComentarios'])->where("id", "[0-9]+");
 Route::post('comentarios', [ComentariosController::class, 'createComentario']);
 
 Route::get('productos/{id}/comentarios', [ComentariosController::class, 'getComentariosPorProducto']);

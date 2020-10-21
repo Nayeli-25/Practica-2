@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
-    public function getProductos ()
+    public function getProductos ($id=null)
     {
-        $productos = Productos::all();
-        return response()
-        ->json($productos);
+        if ($id)
+            return response()->json(["Producto"=>Productos::find($id)],200);
+        return response()->json(["Productos"=>Productos::all()],200);
     }
     public function createProducto(Request $request)
     {
         $producto = new Productos;
 
-        $producto->nombre = $request->name;
+        $producto->Producto = $request->Producto;
 
         $producto->save();
         return 'producto creado';
