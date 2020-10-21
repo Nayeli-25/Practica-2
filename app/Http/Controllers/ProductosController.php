@@ -20,7 +20,29 @@ class ProductosController extends Controller
 
         $producto->Producto = $request->Producto;
 
-        $producto->save();
-        return 'producto creado';
+        if($producto->save())
+            return response()->json(["Nuevo producto"=>$producto],201);
+    
+        return response()->json(null,400);
+    }
+    public function updateProducto(Request $request, $id)
+    {
+        $ProductoActualizado = Productos::find($id);
+        $ProductoActualizado->Producto = $request->Producto;
+        
+        if ($ProductoActualizado->save())
+            return response()->json(["Nuevos datos del producto"=>Productos::find($id)],200);
+
+        return response()->json(null,400);
+    }
+   
+    public function deleteProducto($id){
+
+        $ProductoEliminado = Productos::findOrFail($id);
+        
+        if($ProductoEliminado ->delete())
+            return response()->json("Producto eliminado correctamente",200);
+
+        return response()->json(null,400);
     }
 }
