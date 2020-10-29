@@ -14,7 +14,9 @@ class ProductoSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('productos')->insert([
+        factory(App\Models\Productos::class, 120)->create();
+        
+        /**DB::table('productos')->insert([
             'Producto' => 'Laptop Microsoft Surface Go'
         ]);
         DB::table('productos')->insert([
@@ -43,6 +45,6 @@ class ProductoSeeder extends Seeder
         ]);
         DB::table('productos')->insert([
             'Producto' => 'MacBook Pro Retina'
-        ]);
+        ]);**/
     }
 }

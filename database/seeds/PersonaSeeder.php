@@ -14,37 +14,6 @@ class PersonaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('personas')->insert([
-            'Nombre' => 'Nayeli',
-            'Apellido' => 'Esquivel'
-        ]);
-        DB::table('personas')->insert([
-            'Nombre' => 'Luis',
-            'Apellido' => 'Esparza'
-        ]);
-        DB::table('personas')->insert([
-            'Nombre' => 'Nancy',
-            'Apellido' => 'Ortiz'
-        ]);
-        DB::table('personas')->insert([
-            'Nombre' => 'Diego',
-            'Apellido' => 'Mendez'
-        ]);
-        DB::table('personas')->insert([
-            'Nombre' => 'Carolina',
-            'Apellido' => 'Luna'
-        ]);
-        DB::table('personas')->insert([
-            'Nombre' => 'Francisco',
-            'Apellido' => 'Díaz'
-        ]);
-        DB::table('personas')->insert([
-            'Nombre' => 'Jose',
-            'Apellido' => 'Delgado'
-        ]);
-        DB::table('personas')->insert([
-            'Nombre' => 'Iván',
-            'Apellido' => 'Rodríguez'
-        ]);
+        $persona = factory(App\Models\Personas::class, 50)->create();
     }
 }

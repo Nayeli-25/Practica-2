@@ -14,7 +14,9 @@ class ComentarioSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('comentarios')->insert([
+        $comentarios = factory(App\Models\Comentarios::class, 100)->create();
+        
+        /**DB::table('comentarios')->insert([
             'comentario' => 'Excelente',
             'persona_id' => '1',
             'producto_id' => '4'
@@ -63,6 +65,6 @@ class ComentarioSeeder extends Seeder
             'comentario' => 'Muy mala',
             'persona_id' => '8',
             'producto_id' => '9'
-        ]);
+        ]);**/
     }
 }
