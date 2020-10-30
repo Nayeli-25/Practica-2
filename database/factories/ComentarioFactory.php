@@ -10,8 +10,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Models\Comentarios::class, function (Faker $faker) {
     return [
         'comentario' => $faker->text(50),
-        'persona_id' => factory(App\Models\Personas::class),
-        'producto_id' => factory(App\Models\Productos::class),
+        'persona_id' => App\Models\Personas::all()->random()->id,
+        'producto_id' => App\Models\Productos::all()->random()->id,
         'created_at' => $faker->date,
         'updated_at' => now(),
     ];
