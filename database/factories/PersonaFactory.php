@@ -10,7 +10,6 @@ $factory->define(App\Models\Personas::class, function (Faker $faker) {
     return [
         'Nombre' => $faker->firstname,
         'Apellido' => $faker->lastname,
-        /**'email' => $faker->unique()->safeEmail,
-        'Contraseña' => Hash::make("1234567"),**/
+        'Edad' => $faker->numberBetween(18,65),
     ];
 });

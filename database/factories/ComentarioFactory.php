@@ -12,7 +12,7 @@ $factory->define(App\Models\Comentarios::class, function (Faker $faker) {
         'comentario' => $faker->text(50),
         'persona_id' => App\Models\Personas::all()->random()->id,
         'producto_id' => App\Models\Productos::all()->random()->id,
-        'created_at' => $faker->date,
-        'updated_at' => now(),
+        'created_at' => $faker->date('Y-m-d'),
+        'updated_at' => now('Y-m-d'),
     ];
 });

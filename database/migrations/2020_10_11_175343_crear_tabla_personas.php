@@ -17,6 +17,7 @@ class CrearTablaPersonas extends Migration
             $table->id();
             $table->string('Nombre');
             $table->string('Apellido');
+            $table->string('Edad');
         });
     }
 

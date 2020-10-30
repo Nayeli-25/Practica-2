@@ -21,6 +21,7 @@ class PersonasController extends Controller
 
         $persona->Nombre = $request->Nombre;
         $persona->Apellido = $request->Apellido;
+        $persona->Edad = $request->Edad;
 
         if ($persona->save())
             return response()->json(["Nueva persona"=>$persona],201);
@@ -33,6 +34,7 @@ class PersonasController extends Controller
         $PersonaActualizada = Personas::find($id);
         $PersonaActualizada->Nombre = $request->Nombre;
         $PersonaActualizada->Apellido = $request->Apellido;
+        $PersonaActualizada->Edad = $request->Edad;
         
         if ($PersonaActualizada->save())
             return response()->json(["Nuevos datos de la persona"=>$PersonaActualizada],200);
