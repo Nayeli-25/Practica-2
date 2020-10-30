@@ -15,36 +15,11 @@ class ProductoSeeder extends Seeder
     public function run()
     {
         factory(App\Models\Productos::class, 120)->create();
-        
-        /**DB::table('productos')->insert([
-            'Producto' => 'Laptop Microsoft Surface Go'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'Laptop ASUS VivoBook E12'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'MacBook Air'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'Laptop Acer Swift 5'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'Laptop Acer Aspire 5'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'MacBook Pro 2020'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'Laptop ASUS VivoBook S14'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'Laptop HP Pavilion'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'Laptop DELL Inspiration'
-        ]);
-        DB::table('productos')->insert([
-            'Producto' => 'MacBook Pro Retina'
-        ]);**/
     }
 }
+
+
+        
+    /**DB::table('productos')->insert([
+        'Producto' => 'Laptop Microsoft Surface Go'
+    ]); **/
