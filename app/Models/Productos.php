@@ -14,4 +14,10 @@ class Productos extends Model
      */
     protected $table = 'productos';
     public $timestamps = false;
+
+    public function relacionComentarios()
+    {
+        /*un producto tiene muchos comentarios*/
+        return $this->hasMany('App\Models\Comentarios');
+    }
 }

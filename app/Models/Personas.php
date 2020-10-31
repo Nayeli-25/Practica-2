@@ -14,4 +14,15 @@ class Personas extends Model
      */
     protected $table = 'personas';
     public $timestamps = false;
+
+    public function relacionUsuarios()
+    {
+        /*varias personas pertenecen a un usuario*/
+        return $this->belongsTo('App\Models\User');
+    }
+    public function relacionComentarios()
+    {
+        /*una persona tiene muchos comentarios*/
+        return $this->hasMany('App\Models\Comentarios');
+    }
 }

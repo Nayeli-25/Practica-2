@@ -13,4 +13,15 @@ class Comentarios extends Model
      * @var string
      */
     protected $table = 'comentarios';
+
+    public function relacionProductos()
+    {
+        /*muchos comentarios pertenecen a un producto*/
+        return $this->belongsTo('App\Models\Productos');
+    }
+    public function relacionPersonas()
+    {
+        /*muchos comentarios pertencen a una persona*/
+        return $this->belongsTo('App\Models\Personas');
+    }
 }

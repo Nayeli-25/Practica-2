@@ -2,7 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Models\User;
+use App\Models\Personas;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -20,9 +21,11 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'Nombre' => $faker->name,
+        'Persona_id' => Personas::inRandomOrder()->value('id') ?: factory(Personas::class),
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
         'Contraseña' => Hash::make('1234567'), 
+        'Rol' => $faker->randomElement(['admin', 'suscriptor']),
+        'email_verified_at' => now(),
         'remember_token' => Str::random(10),
     ];
 });

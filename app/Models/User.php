@@ -1,7 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,6 +18,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function relacionPersonas()
+    {
+        /*un usuario tiene varias personas*/
+        return $this->hasMany('App\Models\Personas');
+    }
     protected $table = 'usuarios';
 
     protected $fillable = [

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\ApiAuth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Models\User;
+use Log;
 
 class AuthController extends Controller
 {
@@ -23,9 +25,9 @@ class AuthController extends Controller
         $usuario -> Contraseña = Hash::make($request -> Contraseña);
 
         if ($usuario->save())
-        return response()->json(["Nuevo usuario"=>$comentario],201);
+        return response()->json(["Nuevo usuario"=>$usuario],201);
     
-    return response()->json(null,422);
+    /**return response()->json(null,422);**/
     }
 
     public function inicio(Request $request)
