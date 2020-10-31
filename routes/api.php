@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ComentariosController;
+use App\Http\Controllers\ApiAuth\AuthController;
+use App\Http\Middleware\CheckAge;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +17,22 @@ use App\Http\Controllers\ComentariosController;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 */
 
+Route::get('admin/profile', function () {
+    //
+})->middleware(CheckAge::class);
+
+/* Middlewares autentificación*/
+Route::middleware('auth:sanctum')->get('user', 'ApiAuth\AuthController@inicio');
+Route::middleware('auth:sanctum')->delete('logout', 'ApiAuth\AuthController@logOut');
+
+/* Rutas Registro usuario*/
+Route::post('registrar', 'ApiAuth\AuthController@registrarUsuario');
+Route::post('login', 'ApiAuth\AuthController@logIn');
 
 /* Rutas Personas*/
 Route::get('/personas/{id?}', 'PersonasController@getPersonas')->where("id", "[0-9]+");
@@ -39,5 +55,3 @@ Route::delete('/deletecomentario/{id}', 'ComentariosController@deleteComentario'
 /* Rutas específicas*/
 Route::get('productos/{id}/comentarios', 'ComentariosController@getComentariosPorProducto');
 Route::get('personas/{id}/comentarios', 'ComentariosController@getComentariosPorPersona');
-
-

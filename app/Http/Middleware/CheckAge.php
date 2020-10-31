@@ -16,7 +16,7 @@ class CheckAge
     public function handle($request, Closure $next)
     {
         if ($request->age < 18) {
-            return redirect('home');
+            return redirect('inicio');
         }
         return $next($request);
     }
