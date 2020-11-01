@@ -15,9 +15,12 @@ class CheckAge
      */
     public function handle($request, Closure $next)
     {
-        if ($request->age < 18) {
-            return redirect('inicio');
+        if ($request->Edad >= 18) 
+        {
+            return $next($request);
         }
-        return $next($request);
+        
+        return response()->json( 'Edad inválida',400);
+        
     }
 }
